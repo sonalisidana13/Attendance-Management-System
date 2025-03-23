@@ -1,0 +1,9 @@
+#Author - Sonali
+#Purpose - Create Table CLASS
+
+CREATE TABLE `class` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `class_name` VARCHAR(45) NOT NULL,
+  `created_timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`));

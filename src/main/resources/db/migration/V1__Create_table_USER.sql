@@ -1,0 +1,11 @@
+#Author - Sonali
+#Purpose - Create Table USER
+
+CREATE TABLE `user` (
+  `user_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(60) NOT NULL,
+  `phone` VARCHAR(20) NOT NULL,
+  `created_timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`user_id`));
