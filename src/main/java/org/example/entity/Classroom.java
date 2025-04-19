@@ -2,24 +2,13 @@ package org.example.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.example.utils.Result;
 
 import java.util.Objects;
 
-@Data
 public class Classroom {
-
-    // ✅ Explicit no-args constructor
-    public Classroom() {
-    }
-
-    // ✅ Explicit all-args constructor
-    public Classroom(Integer id, String className) {
-        this.id = id;
-        this.className = className;
-    }
-
 
     private Integer id;
     private String className;
@@ -29,5 +18,18 @@ public class Classroom {
             return Result.fail("Class Name Cannot be empty");
         }
         return Result.ok(new Classroom(id, className));
+    }
+
+    public Classroom(Integer id, String className) {
+        this.id = id;
+        this.className = className;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getClassName() {
+        return className;
     }
 }
