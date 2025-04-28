@@ -9,7 +9,7 @@ public class CommonUtils {
     );
 
     static final Pattern PHONE_PATTERN = Pattern.compile(
-            "^[0-9]{10}$"    // example: 10 digits only
+            "^(\\+\\d{1,3}[- ]?)?\\d{10}$" // example with country code +91-9876543210
     );
 
     public static boolean validateEmailFormat(String email){
