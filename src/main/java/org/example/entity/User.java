@@ -1,10 +1,12 @@
 package org.example.entity;
 
+import io.micrometer.common.util.StringUtils;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 import org.example.enums.UserType;
+import org.example.utils.CommonUtils;
 import org.example.utils.Result;
 
 import java.util.Objects;
@@ -39,11 +41,17 @@ public class User {
         if (Objects.isNull(username)) {
             return Result.fail("User Name Cannot be empty");
         }
-        if (Objects.isNull(email)) {
+        if (Objects.isNull(email) || StringUtils.isBlank(email)) {
             return Result.fail("Email Cannot be empty");
         }
-        if (Objects.isNull(phone)) {
+        if (!CommonUtils.validateEmailFormat(email)) {
+            return Result.fail("Invalid Email Format");
+        }
+        if (Objects.isNull(phone) || StringUtils.isBlank(phone)) {
             return Result.fail("Phone Number Cannot be empty");
+        }
+        if (!CommonUtils.validatePhoneNumber(phone)) {
+            return Result.fail("Invalid Phone Number Format");
         }
         return Result.ok(new User(userId, userType, username, email, phone));
     }
